@@ -1,4 +1,4 @@
-module stk
+module github.com/duanchuansong/stk
 
 go 1.16
 
