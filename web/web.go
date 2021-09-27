@@ -3,8 +3,8 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
-	"stk/ecode"
-	"stk/xlog"
+	"github.com/duanchuansong/stk/ecode"
+	"github.com/duanchuansong/stk/xlog"
 )
 
 type Data struct {
