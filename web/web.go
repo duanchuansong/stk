@@ -19,7 +19,7 @@ func Json(c *gin.Context, data interface{}) {
 		if err != nil {
 			xlog.Errorf("ioutil.ReadAll(%v),err:%v", c.Request.Body, err)
 		}
-		xlog.Errorf("api error-->url:%s,params:%s,err:%v", c.Request.URL.Host+c.Request.URL.Path+c.Request.URL.RequestURI(), string(req), e)
+		xlog.Errorf("api error-->url:%s,params:%s,err:%v", c.Request.URL.RequestURI(), string(req), e)
 		c.JSON(200, Data{
 			Code: e.Code(),
 			Msg:  e.Message(),
