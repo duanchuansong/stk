@@ -29,17 +29,17 @@ func getLoggerLevel(lvl string) zapcore.Level {
 }
 
 type Config struct {
-	LogPath string
+	LogPath     string
 	LogFileName string
-	LogLevel string
-	LogOutFile bool
+	LogLevel    string
+	LogOutFile  bool
 }
 
 var LogConfig = &Config{
 	LogPath:     "",
 	LogFileName: "",
 	LogLevel:    "info",
-	LogOutFile:false,
+	LogOutFile:  false,
 }
 
 func Init(cfg *Config) {
@@ -58,9 +58,9 @@ func Init(cfg *Config) {
 	level := getLoggerLevel(configLogLevel) //日志等级
 	var core zapcore.Core
 	if cfg.LogOutFile {
-		filePath := cfg.LogPath
+		filePath := cfg.LogFileName
 		// configFilePath 文件夹位置
-		configFilePath := cfg.LogFileName
+		configFilePath := cfg.LogPath
 		if configFilePath != "" {
 			if strings.HasSuffix(configFilePath, "/") { //判断是否以/结尾
 				filePath = configFilePath + filePath
@@ -82,7 +82,7 @@ func Init(cfg *Config) {
 			zapcore.NewCore(consoleEncoder, consoleErrors, highPriority),
 			zapcore.NewCore(consoleEncoder, consoleDebugging, lowPriority),
 		)
-	}else{
+	} else {
 		core = zapcore.NewTee(
 			zapcore.NewCore(consoleEncoder, consoleErrors, highPriority),
 			zapcore.NewCore(consoleEncoder, consoleDebugging, lowPriority),
