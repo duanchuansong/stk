@@ -1,10 +1,10 @@
 package web
 
 import (
-	"github.com/gin-gonic/gin"
-	"io/ioutil"
 	"github.com/duanchuansong/stk/ecode"
 	"github.com/duanchuansong/stk/xlog"
+	"github.com/gin-gonic/gin"
+	"io/ioutil"
 )
 
 type Data struct {
